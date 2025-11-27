@@ -1,6 +1,7 @@
 
 package br.dev.marcocarneiro.airports.controllers;
 
+import br.dev.marcocarneiro.airports.DTO.AirportMinDTO;
 import br.dev.marcocarneiro.airports.entities.Airport;
 import br.dev.marcocarneiro.airports.service.AirportService;
 import java.util.List;
@@ -42,9 +43,9 @@ public class AirportController {
      * @param cityName
      * @return
      */
-    @GetMapping ("/city/{cityName}")
-    public ResponseEntity<List<Airport>> findByCityIgnoreCase (@PathVariable String cityName){
-        List<Airport> result = airportService.findByCity(cityName);
+    @GetMapping ("/country/{countryName}")
+    public ResponseEntity<List<AirportMinDTO>> findByCountryIgnoreCase (@PathVariable String countryName){
+        List<AirportMinDTO> result = airportService.findByCountry(countryName);
         
         if (result.isEmpty()){
             //Ops.. lista vazia...
